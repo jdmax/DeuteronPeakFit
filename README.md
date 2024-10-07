@@ -26,7 +26,7 @@ The success of the fit is highly dependent on the initial parameters passed. The
 
 ![Example Fit of 42% Polarized Deuteron Signal at 5T](./example.png)
 
-Example Fit of 42% Polarized Deuteron Signal at 5T
+Example Fit of 42% Polarized Deuteron Signal at 5T taken on ND$_3$ during Run Group C at [Jefferson Lab](https://www.jlab.org/).
 
 ## Author
 Written in 2021 by J. Maxwell (https://orcid.org/0000-0003-2710-4646).

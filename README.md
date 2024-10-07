@@ -27,6 +27,5 @@ The success of the fit is highly dependent on the initial parameters passed. The
 ## References
 
 <a id="1">[1]</a> 
-Dulya, C. et. al.  
-"A line-shape analysis for spin-1 NMR signals"
+Dulya, C. et. al.  "A line-shape analysis for spin-1 NMR signals"
 NIM A, 398, 109-125 (1997). (https://doi.org/10.1016/S0168-9002(97)00317-3)

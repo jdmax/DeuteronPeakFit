@@ -29,7 +29,7 @@ The success of the fit is highly dependent on the initial parameters passed. The
 Example Fit of 42% Polarized Deuteron Signal at 5T taken on ND<sub>3</sub> during Run Group C at [Jefferson Lab](https://www.jlab.org/).
 
 ### Example
-An example signal is included for fitting. example.py gives an example usage which will plot this signal to test your installation.
+An example signal is included for fitting. Script example.py gives an example usage which will plot this signal to test your installation.
 
 ## Author
 Written in 2021 by J. Maxwell (https://orcid.org/0000-0003-2710-4646).

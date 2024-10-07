@@ -5,8 +5,8 @@ Fitting routine for spin-1 NMR signals with quadrupolar splitting Pake doublets,
 Uses Non-Linear Least-Squares Minimization and Curve-Fitting for Python (LMFIT), https://lmfit.github.io/lmfit-py/
 
 
-### Use
-May be called as an object which requires passing a list of frequency points, a list signal magnitudes at each point, and a parameter dictionary.
+### Usage
+May be called as object "DFits" which requires passing a list of frequency points, a list signal magnitudes at each point, and a parameter dictionary.
 ```
 fit_results = DFits(freqs, sweep, params)
 
@@ -20,13 +20,16 @@ The success of the fit is highly dependent on the initial parameters passed. The
 * G: Scale factor
 * r: Asymmetry parameter, representing relative sizes of two peaks
 * wQ: Quadrupolar splitting frequency width
-* wL: Larmor frequency (in same units as the passed frequency list)
+* wL: Nuclear Larmor frequency (in same units as the passed frequency list)
 * eta: Peak width factor
 * xi: False asymmetry correction from mistuning
 
 ![Example Fit of 42% Polarized Deuteron Signal at 5T](./example.png)
 
 Example Fit of 42% Polarized Deuteron Signal at 5T taken on ND<sub>3</sub> during Run Group C at [Jefferson Lab](https://www.jlab.org/).
+
+### Example
+An example signal is included for fitting. example.py gives an example usage which will plot this signal to test your installation.
 
 ## Author
 Written in 2021 by J. Maxwell (https://orcid.org/0000-0003-2710-4646).

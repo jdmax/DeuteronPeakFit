@@ -1,6 +1,6 @@
 # Deuteron Peak Fit for NMR Signal Analysis
 
-Simple fitting program for spin-1 NMR signals with quadrupolar splitting Pake doublets, based on C code by C. Dulya. [[1]](#1)
+Simple fitting program for spin-1 NMR signals with quadrupolar splitting Pake doublets, based on C code by C. Dulya. [[1]](#1) Written in 2021 by J. Maxwell.
 
 Uses Non-Linear Least-Squares Minimization and Curve-Fitting for Python (LMFIT), https://lmfit.github.io/lmfit-py/
 

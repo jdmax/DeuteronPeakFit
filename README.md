@@ -1,6 +1,6 @@
 # Deuteron Peak Fit for NMR Signal Analysis
 
-Simple fitting program for spin-1 NMR signals with quadrupolar splitting, based on C code by C. Dulya. [[1]](#1)
+Simple fitting program for spin-1 NMR signals with quadrupolar splitting Pake doublets, based on C code by C. Dulya. [[1]](#1)
 
 Uses Non-Linear Least-Squares Minimization and Curve-Fitting for Python (LMFIT), https://lmfit.github.io/lmfit-py/
 
@@ -13,8 +13,16 @@ fit_results = DFits(freqs, sweep, params)
 r = fit_results.result.params['r'].value
 pol = (r * r - 1) / (r * r + r + 1)
 ```
+The return is a LMFIT ModelResult object (https://lmfit.github.io/lmfit-py/model.html#lmfit.model.ModelResult).
 
-The success of the fit is highly dependent on the initial parameters passed.
+The success of the fit is highly dependent on the initial parameters passed. The parameter dictionary is label based on Dulya's convention:
+* A: Width due to dipolar broadening
+* G: Scale factor
+* r: Asymmetry parameter, representing relative sizes of two peaks
+* wQ: Quadrupolar splitting frequency width
+* wL: Larmor frequency (in same units as the passed frequency list)
+* eta: Peak width factor
+* xi: False asymmetry correction from mistuning
 
 ## References
 

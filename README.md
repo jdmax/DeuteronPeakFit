@@ -25,6 +25,7 @@ The success of the fit is highly dependent on the initial parameters passed. The
 * xi: False asymmetry correction from mistuning
 
 ![Example Fit of 42% Polarized Deuteron Signal at 5T](./example.png)
+
 Example Fit of 42% Polarized Deuteron Signal at 5T
 
 ## Author

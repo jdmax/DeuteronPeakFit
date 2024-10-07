@@ -24,7 +24,7 @@ The success of the fit is highly dependent on the initial parameters passed. The
 * eta: Peak width factor
 * xi: False asymmetry correction from mistuning
 
-![Example Fit of 42% Polarized Deuteron Signal at 5T](./example.png)
+![Example Fit of 42% Polarized Deuteron Signal at 5T](example_data/example.png)
 
 Example Fit of 42% Polarized Deuteron Signal at 5T taken on ND<sub>3</sub> during Run Group C at [Jefferson Lab](https://www.jlab.org/).
 

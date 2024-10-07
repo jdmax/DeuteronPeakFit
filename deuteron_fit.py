@@ -1,6 +1,6 @@
 """Fit to Deuteron Lineshape NMR Signal
 
-Translated from original C code by C. Dulya into Python by J. Maxwell.
+Translated from original C code by C. Dulya into Python by J. Maxwell in 2021.
 "A line-shape analysis for spin-1 NMR signals", C. Dulya et. al.,
 SMC Collaboration, NIM A 398 (1997) 109-125.
 
@@ -12,6 +12,7 @@ signal magnitudes, and params is a dict of initial parameters.
 
 "result" is then a results object in the form of lmfit.
 """
+
 import numpy as np
 from lmfit import Model
 

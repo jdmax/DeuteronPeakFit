@@ -6,7 +6,7 @@ Uses Non-Linear Least-Squares Minimization and Curve-Fitting for Python (LMFIT),
 
 
 ### Use
-May be called as an object which requires passing a list of frequency points, a list signal magnitudes at each point, and a parameter dictionary.
+May be called as object "DFits" which requires passing a list of frequency points, a list signal magnitudes at each point, and a parameter dictionary.
 ```
 fit_results = DFits(freqs, sweep, params)
 

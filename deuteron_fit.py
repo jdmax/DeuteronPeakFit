@@ -16,6 +16,7 @@ signal magnitudes, and params is a dict of initial parameters
 
 import numpy as np
 from lmfit import Model
+from scipy.signal import hilbert
 
 
 def fit_deuteron(freqs, signal, initial_params):
@@ -49,8 +50,9 @@ def _fit_func(w, A, G, r, wQ, wL, eta, xi):
 
     F = G * (Im * Fm + Ip * Fp)
     fAsym = 1 + 0.5 * xi * (1 + R)
+    bg = 0
 
-    return fAsym * F
+    return fAsym * F + bg
 
 
 def _iplus(r, Q, R):
@@ -156,3 +158,26 @@ def _f_and_derivs(R, A, eps, eta):
         dFdEta *= dphi
 
     return FF, dFdA, dFdR, dFdEta
+
+
+def fit_deuteron_complex(freqs, signal, initial_params):
+    """Fit to complex deuteron lineshape (absorption + dispersion mixed by phase).
+
+    Args:
+        freqs: list of frequency points (X axis)
+        signal: list of signal points   (Y axis)
+        initial_params: dict of initial parameters (A, G, r, wQ, wL, eta, xi, phase)
+
+    Returns:
+        result object from lmfit
+    """
+    mod = Model(_fit_func_complex)
+    params = mod.make_params(**initial_params)
+    return mod.fit(signal, params=params, w=freqs)
+
+
+def _fit_func_complex(w, A, G, r, wQ, wL, eta, xi, phase):
+    """Deuteron lineshape with phase rotation between absorption and dispersion."""
+    absorption = _fit_func(w, A, G, r, wQ, wL, eta, xi)
+    dispersion = np.imag(hilbert(absorption))
+    return np.cos(phase) * absorption + np.sin(phase) * dispersion

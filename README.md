@@ -9,7 +9,7 @@ Uses Non-Linear Least-Squares Minimization and Curve-Fitting for Python (LMFIT),
 Three fitting functions are provided, each returning an lmfit ModelResult object (https://lmfit.github.io/lmfit-py/model.html#lmfit.model.ModelResult).
 
 **`fit_deuteron(freqs, signal, initial_params)`**
-Absorption-only fit to the Dulya lineshape.
+Absorption-only fit to the Dulya lineshape, as in the original C code.
 
 **`fit_deuteron_complex(freqs, signal, initial_params)`**
 Fits the complex signal — absorption and dispersion mixed by a phase angle. Adds parameter `phase`. The dispersion component is computed analytically as the Kramers-Kronig partner of the absorption lineshape, following Kisselev et al. (1995) [[2]](#2) and McClellan (2025). [[3]](#3)

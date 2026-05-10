@@ -1,6 +1,6 @@
 # Example of deuteron fit usage. Plots an example event from Run Group C.
 
-from deuteron_fit import fit
+from deuteron_fit import fit_complex
 import matplotlib.pyplot as plt
 import json
 
@@ -11,16 +11,17 @@ with open("example_data/example_data.json", "r") as event:
         freqs = json_dict['freq_list']
 
 initial_params = {
-    'A':   0.03,
-    'G':  -0.00003,
-    'r':   1.2,      # r > 1 is positive polarization
-    'wQ':  0.027,
-    'wL':  32.69,
+    'A':    0.03,
+    'G':   -0.00003,
+    'r':    1.2,      # r > 1 is positive polarization
+    'wQ':   0.027,
+    'wL':   32.69,
     'eta': -0.02,
     'xi':  -0.001,
+    'phase': 0.0,
 }
 
-result = fit(freqs, signal, initial_params)
+result = fit_complex(freqs, signal, initial_params)
 
 r      = result.params['r'].value
 r_err  = result.params['r'].stderr

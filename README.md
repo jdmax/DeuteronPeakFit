@@ -83,8 +83,8 @@ Parameters follow Dulya's convention:
 | `wQ` | Quadrupolar splitting frequency width |
 | `wL` | Nuclear Larmor frequency (same units as `freqs`) |
 | `eta` | Peak asymmetry factor |
-| `xi` | False asymmetry correction from receiver mistuning |
-| `phase` | Receiver phase angle (complex fits only) |
+| `xi` | False asymmetry correction from  mistuning |
+| `phase` | Phase angle (complex fits only) |
 | `c3,c2,c1,c0` | Cubic baseline coefficients (cubic fit only) |
 
 ### Bounds and constraints

@@ -47,9 +47,9 @@ def fit(freqs, signal, initial_params):
     """Fit to deuteron lineshape.
 
     Args:
-        freqs: list of frequency points (X axis)
-        signal: list of signal points   (Y axis)
-        initial_params: dict of initial parameters (A, G, r, wQ, wL, eta, xi)
+        freqs: list of frequencies
+        signal: list of signal points 
+        initial_params: dict (A, G, r, wQ, wL, eta, xi)
 
     Returns:
         result object from lmfit
@@ -63,9 +63,9 @@ def fit_complex(freqs, signal, initial_params):
     """Fit to complex deuteron lineshape (absorption + dispersion mixed by phase).
 
     Args:
-        freqs: list of frequency points (X axis)
-        signal: list of signal points   (Y axis)
-        initial_params: dict of initial parameters (A, G, r, wQ, wL, eta, xi, phase)
+        freqs: list of frequencies
+        signal: list of signal points 
+        initial_params: dict (A, G, r, wQ, wL, eta, xi, phase)
 
     Returns:
         result object from lmfit
@@ -79,9 +79,9 @@ def fit_complex_cubic(freqs, signal, initial_params):
     """Fit to complex deuteron lineshape with cubic polynomial baseline.
 
     Args:
-        freqs: list of frequency points (X axis)
-        signal: list of signal points   (Y axis)
-        initial_params: dict of initial parameters (A, G, r, wQ, wL, eta, xi, phase, c3, c2, c1, c0)
+        freqs: list of frequencies
+        signal: list of signal points 
+        initial_params: dict (A, G, r, wQ, wL, eta, xi, phase, c3, c2, c1, c0)
 
     Returns:
         result object from lmfit

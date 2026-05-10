@@ -1,6 +1,6 @@
 # Example of deuteron fit usage. Plots an example event from Run Group C.
 
-from deuteron_fit import fit_deuteron
+from deuteron_fit import fit
 import matplotlib.pyplot as plt
 import json
 
@@ -20,7 +20,7 @@ initial_params = {
     'xi':  -0.001,
 }
 
-result = fit_deuteron(freqs, signal, initial_params)
+result = fit(freqs, signal, initial_params)
 
 r      = result.params['r'].value
 r_err  = result.params['r'].stderr

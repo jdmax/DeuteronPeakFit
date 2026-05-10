@@ -13,13 +13,13 @@ Eur. Phys. J. A 61, 176 (2025).
 
 Three public fitting functions are provided:
 
-    fit_deuteron(freqs, signal, initial_params)
+    fit(freqs, signal, initial_params)
         Absorption-only fit. Parameters: A, G, r, wQ, wL, eta, xi.
 
-    fit_deuteron_complex(freqs, signal, initial_params)
+    fit_complex(freqs, signal, initial_params)
         Absorption + dispersion mixed by a phase angle. Adds: phase.
 
-    fit_deuteron_complex_cubic(freqs, signal, initial_params)
+    fit_complex_cubic(freqs, signal, initial_params)
         Complex lineshape with cubic polynomial baseline. Adds: c3, c2, c1, c0.
 
 All three return an lmfit result object.
@@ -43,7 +43,7 @@ from lmfit import Model
 
 # --- Public fitting functions ------------------------------------------------
 
-def fit_deuteron(freqs, signal, initial_params):
+def fit(freqs, signal, initial_params):
     """Fit to deuteron lineshape.
 
     Args:
@@ -59,7 +59,7 @@ def fit_deuteron(freqs, signal, initial_params):
     return mod.fit(signal, params=params, w=freqs)
 
 
-def fit_deuteron_complex(freqs, signal, initial_params):
+def fit_complex(freqs, signal, initial_params):
     """Fit to complex deuteron lineshape (absorption + dispersion mixed by phase).
 
     Args:
@@ -75,7 +75,7 @@ def fit_deuteron_complex(freqs, signal, initial_params):
     return mod.fit(signal, params=params, w=freqs)
 
 
-def fit_deuteron_complex_cubic(freqs, signal, initial_params):
+def fit_complex_cubic(freqs, signal, initial_params):
     """Fit to complex deuteron lineshape with cubic polynomial baseline.
 
     Args:

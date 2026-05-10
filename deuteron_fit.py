@@ -97,8 +97,8 @@ def _fit_func(w, A, G, r, wQ, wL, eta, xi):
     """Absorption-only deuteron lineshape evaluated at frequencies w."""
     R = (w - wL) / (3 * wQ)
 
-    Ip, _ = _iplus(r, wQ / wL, R)
-    Im, _ = _iminus(r, wQ / wL, R)
+    Ip = _iplus(r, wQ / wL, R)
+    Im = _iminus(r, wQ / wL, R)
 
     Fm = _f(R, A, -1, eta)
     Fp = _f(R, A, 1, eta)
@@ -122,8 +122,8 @@ def _fit_func_complex(w, A, G, r, wQ, wL, eta, xi, phase):
     """
     R = (w - wL) / (3 * wQ)
 
-    Ip, _ = _iplus(r, wQ / wL, R)
-    Im, _ = _iminus(r, wQ / wL, R)
+    Ip = _iplus(r, wQ / wL, R)
+    Im = _iminus(r, wQ / wL, R)
 
     Fm_abs = _f(R, A, -1, eta)
     Fp_abs = _f(R, A, 1, eta)
@@ -157,18 +157,14 @@ def _iplus(r, Q, R):
     """Boltzmann population factor for the +1 quadrupole transition."""
     r3QR = r ** (-3 * Q * R)
     NN = r * (r + r3QR) + 1
-    II = r * (r - r3QR) / NN
-    dI_dr = (2 * r * (1 - II) - (1 - 3 * Q * R) * r3QR * (1 + II)) / NN
-    return II, dI_dr
+    return r * (r - r3QR) / NN
 
 
 def _iminus(r, Q, R):
     """Boltzmann population factor for the -1 quadrupole transition."""
     r3QR = r ** (3 * Q * R)
     NN = r * (r + r3QR) + 1
-    II = (r * r3QR - 1) / NN
-    dI_dr = ((1 + 3 * Q * R) * r3QR * (1 - II) - 2 * r * II) / NN
-    return II, dI_dr
+    return (r * r3QR - 1) / NN
 
 
 def _f(R, A, eps, eta, disp=False):

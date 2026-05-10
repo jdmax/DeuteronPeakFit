@@ -33,12 +33,43 @@ initial_params = {
 }
 
 result = fit_deuteron(freqs, signal, initial_params)
-
-r = result.params['r'].value
-pol = (r * r - 1) / (r * r + r + 1)
 ```
 
 The success of the fit is highly dependent on the initial parameters passed.
+
+### Polarization from fit results
+
+The fitted `r` parameter is the Boltzmann population ratio between the m=+1 and m=-1 spin states. Vector polarization P and tensor polarization A or P<sub>zz</sub> can be calculated from it directly:
+
+**Vector polarization:**
+
+$$P = \frac{r^2 - 1}{r^2 + r + 1}$$
+
+**Tensor polarization:**
+
+$$P_{zz} = \frac{(r-1)^2}{r^2 + r + 1}$$
+
+lmfit reports the standard error on each parameter as `result.params['r'].stderr`. Propagating this through both formulas:
+
+$$\sigma_P = \frac{r^2 + 4r + 1}{(r^2 + r + 1)^2} \cdot \sigma_r$$
+
+$$\sigma_{P_{zz}} = \frac{3|r^2 - 1|}{(r^2 + r + 1)^2} \cdot \sigma_r$$
+
+In code:
+
+```python
+r      = result.params['r'].value
+r_err  = result.params['r'].stderr
+denom  = r**2 + r + 1
+
+P      = (r**2 - 1) / denom
+Pzz    = (r - 1)**2 / denom
+
+P_err   = (r**2 + 4*r + 1) / denom**2 * r_err
+Pzz_err = 3 * abs(r**2 - 1)  / denom**2 * r_err
+```
+
+Other fitted values and their uncertainties are accessed the same way, e.g. `result.params['wQ'].value` and `result.params['wQ'].stderr`. The full lmfit result object also provides fit statistics, covariance matrix, and a fit report via `result.fit_report()`.
 
 ### Parameters
 

@@ -12,7 +12,7 @@ Three fitting functions are provided, each returning an lmfit ModelResult object
 Absorption-only fit to the Dulya lineshape.
 
 **`fit_deuteron_complex(freqs, signal, initial_params)`**
-Fits the complex signal — absorption and dispersion mixed by a receiver phase angle. Adds parameter `phase`. The dispersion component is computed analytically as the Kramers-Kronig partner of the absorption lineshape, following Kisselev et al. (1995) [[2]](#2) and McClellan (2025). [[3]](#3)
+Fits the complex signal — absorption and dispersion mixed by a phase angle. Adds parameter `phase`. The dispersion component is computed analytically as the Kramers-Kronig partner of the absorption lineshape, following Kisselev et al. (1995) [[2]](#2) and McClellan (2025). [[3]](#3)
 
 **`fit_deuteron_complex_cubic(freqs, signal, initial_params)`**
 Complex lineshape with a cubic polynomial baseline correction. Adds parameters `c3, c2, c1, c0`.
@@ -110,7 +110,7 @@ An example signal is included for fitting. `example.py` gives an example usage w
 Example fit of 42% polarized deuteron signal at 5T taken on ND<sub>3</sub> during Run Group C at [Jefferson Lab](https://www.jlab.org/).
 
 ## Author
-Written in 2021 by J. Maxwell (https://orcid.org/0000-0003-2710-4646).
+Written in 2021 by J. Maxwell (https://orcid.org/0000-0003-2710-4646). Added complex fitting in 2026.
 
 ## References
 

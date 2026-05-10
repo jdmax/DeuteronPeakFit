@@ -79,7 +79,7 @@ An example signal is included for fitting. `example.py` gives an example usage w
 Example fit of 42% polarized deuteron signal at 5T taken on ND<sub>3</sub> during Run Group C at [Jefferson Lab](https://www.jlab.org/).
 
 ## Author
-Written in 2021 by J. Maxwell (https://orcid.org/0000-0003-2710-4646).
+Written in 2021 by J. Maxwell (https://orcid.org/0000-0003-2710-4646). Added complex fitting in 2026.
 
 ## References
 

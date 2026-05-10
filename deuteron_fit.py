@@ -4,6 +4,13 @@ Translated from original C code by C. Dulya into Python by J. Maxwell in 2021.
 "A line-shape analysis for spin-1 NMR signals", C. Dulya et. al.,
 SMC Collaboration, NIM A 398 (1997) 109-125.
 
+Complex lineshape based on:
+"Measurement of complex RF susceptibility using a series Q-meter",
+Yu.F. Kisselev, C.M. Dulya, T.O. Niinikoski, NIM A 354 (1995) 249-261.
+
+And: "Complex deuteron NMR signals", M. McClellan,
+Eur. Phys. J. A 61, 176 (2025).
+
 Three public fitting functions are provided:
 
     fit_deuteron(freqs, signal, initial_params)

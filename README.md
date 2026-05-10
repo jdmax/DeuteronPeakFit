@@ -12,7 +12,7 @@ Three fitting functions are provided, each returning an lmfit ModelResult object
 Absorption-only fit to the Dulya lineshape.
 
 **`fit_deuteron_complex(freqs, signal, initial_params)`**
-Fits the complex signal — absorption and dispersion mixed by a receiver phase angle. Adds parameter `phase`. The dispersion component is computed analytically as the Kramers-Kronig partner of the absorption lineshape, following McClellan (2025). [[2]](#2)
+Fits the complex signal — absorption and dispersion mixed by a receiver phase angle. Adds parameter `phase`. The dispersion component is computed analytically as the Kramers-Kronig partner of the absorption lineshape, following Kisselev et al. (1995) [[2]](#2) and McClellan (2025). [[3]](#3)
 
 **`fit_deuteron_complex_cubic(freqs, signal, initial_params)`**
 Complex lineshape with a cubic polynomial baseline correction. Adds parameters `c3, c2, c1, c0`.
@@ -88,5 +88,9 @@ Dulya, C. et. al. "A line-shape analysis for spin-1 NMR signals"
 NIM A, 398, 109-125 (1997). (https://doi.org/10.1016/S0168-9002(97)00317-3)
 
 <a id="2">[2]</a>
+Kisselev, Yu.F., Dulya, C.M., Niinikoski, T.O. "Measurement of complex RF susceptibility using a series Q-meter"
+NIM A, 354, 249-261 (1995). (https://doi.org/10.1016/0168-9002(94)01066-8)
+
+<a id="3">[3]</a>
 McClellan, M. "Complex deuteron NMR signals"
 Eur. Phys. J. A, 61, 176 (2025). (https://doi.org/10.1140/epja/s10050-025-01644-z)

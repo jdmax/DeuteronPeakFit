@@ -91,13 +91,26 @@ def fit_deuteron_complex_cubic(freqs, signal, initial_params):
     return mod.fit(signal, params=params, w=freqs)
 
 
-# --- Private model functions (outermost to innermost) ------------------------
+# --- Private model functions ----------------------------------------
 
-def _fit_func_complex_cubic(w, A, G, r, wQ, wL, eta, xi, phase, c3, c2, c1, c0):
-    """Complex deuteron lineshape plus cubic polynomial baseline."""
-    signal = _fit_func_complex(w, A, G, r, wQ, wL, eta, xi, phase)
-    baseline = c3 * w**3 + c2 * w**2 + c1 * w + c0
-    return signal + baseline
+def _fit_func(w, A, G, r, wQ, wL, eta, xi):
+    """Absorption-only deuteron lineshape evaluated at frequencies w."""
+    R = (w - wL) / (3 * wQ)
+
+    Ip, _ = _iplus(r, wQ / wL, R)
+    Im, _ = _iminus(r, wQ / wL, R)
+
+    Fm = _f(R, A, -1, eta)
+    Fp = _f(R, A, 1, eta)
+
+    Fm /= wQ
+    Fp /= wQ
+
+    F = G * (Im * Fm + Ip * Fp)
+    fAsym = 1 + 0.5 * xi * (1 + R)
+    bg = 0
+
+    return fAsym * F + bg
 
 
 def _fit_func_complex(w, A, G, r, wQ, wL, eta, xi, phase):
@@ -131,24 +144,11 @@ def _fit_func_complex(w, A, G, r, wQ, wL, eta, xi, phase):
     return fAsym * (np.cos(phase) * absorption + np.sin(phase) * dispersion) + bg
 
 
-def _fit_func(w, A, G, r, wQ, wL, eta, xi):
-    """Absorption-only deuteron lineshape evaluated at frequencies w."""
-    R = (w - wL) / (3 * wQ)
-
-    Ip, _ = _iplus(r, wQ / wL, R)
-    Im, _ = _iminus(r, wQ / wL, R)
-
-    Fm = _f(R, A, -1, eta)
-    Fp = _f(R, A, 1, eta)
-
-    Fm /= wQ
-    Fp /= wQ
-
-    F = G * (Im * Fm + Ip * Fp)
-    fAsym = 1 + 0.5 * xi * (1 + R)
-    bg = 0
-
-    return fAsym * F + bg
+def _fit_func_complex_cubic(w, A, G, r, wQ, wL, eta, xi, phase, c3, c2, c1, c0):
+    """Complex deuteron lineshape plus cubic polynomial baseline."""
+    signal = _fit_func_complex(w, A, G, r, wQ, wL, eta, xi, phase)
+    baseline = c3 * w**3 + c2 * w**2 + c1 * w + c0
+    return signal + baseline
 
 
 # --- Private math primitives -------------------------------------------------

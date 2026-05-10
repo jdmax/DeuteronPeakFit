@@ -26,14 +26,18 @@ r      = result.params['r'].value
 r_err  = result.params['r'].stderr
 denom  = r**2 + r + 1
 
-P      = (r**2 - 1) / denom
-Pzz    = (r - 1)**2 / denom
+P   = (r**2 - 1) / denom
+Pzz = (r - 1)**2 / denom
 
-P_err   = (r**2 + 4*r + 1) / denom**2 * r_err
-Pzz_err = 3 * abs(r**2 - 1)  / denom**2 * r_err
-
-print(f"Vector polarization:  P   = {P*100:.2f} ± {P_err*100:.2f}%")
-print(f"Tensor polarization:  Pzz = {Pzz*100:.2f} ± {Pzz_err*100:.2f}%")
+if r_err is not None:
+    P_err   = (r**2 + 4*r + 1) / denom**2 * r_err
+    Pzz_err = 3 * abs(r**2 - 1)  / denom**2 * r_err
+    print(f"Vector polarization:  P   = {P*100:.2f} ± {P_err*100:.2f}%")
+    print(f"Tensor polarization:  Pzz = {Pzz*100:.2f} ± {Pzz_err*100:.2f}%")
+else:
+    print(f"Vector polarization:  P   = {P*100:.2f}% (uncertainty unavailable)")
+    print(f"Tensor polarization:  Pzz = {Pzz*100:.2f}% (uncertainty unavailable)")
+    print("Warning: lmfit could not compute parameter uncertainties.")
 
 plt.plot(freqs, signal, label='Signal')
 plt.plot(freqs, result.best_fit, '-r', label='Fit')

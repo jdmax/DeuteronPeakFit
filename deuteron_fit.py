@@ -17,7 +17,7 @@ Three public fitting functions are provided:
         Absorption-only fit. Parameters: A, G, r, wQ, wL, eta, xi.
 
     fit_complex(freqs, signal, initial_params)
-        Absorption + dispersion mixed by a phase angle. Adds: phase.
+        Absorption + dispersion mixed by a phase angle. Adds: phase (in radians).
 
     fit_complex_cubic(freqs, signal, initial_params)
         Complex lineshape with cubic polynomial baseline. Adds: c3, c2, c1, c0.

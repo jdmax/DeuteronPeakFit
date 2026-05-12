@@ -105,9 +105,9 @@ See the [lmfit documentation](https://lmfit.github.io/lmfit-py/parameters.html) 
 
 An example signal is included for fitting. `example.py` gives an example usage which will plot the signal to test your installation.
 
-![Example Fit of 42% Polarized Deuteron Signal at 5T](example_data/example.png)
+![Example Fit of 40% Polarized Deuteron Signal at 5T](example_data/example.png)
 
-Example fit of 42% polarized deuteron signal at 5T taken on ND<sub>3</sub> during Run Group C at [Jefferson Lab](https://www.jlab.org/).
+Example fit of 40% polarized deuteron signal at 5T taken on ND<sub>3</sub> during Run Group C at [Jefferson Lab](https://www.jlab.org/).
 
 ## Author
 Written in 2021 by J. Maxwell (https://orcid.org/0000-0003-2710-4646). Added complex fitting in 2026.
